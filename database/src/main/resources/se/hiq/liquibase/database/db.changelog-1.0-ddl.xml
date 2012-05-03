@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+  <changeSet id="initial" author="joel">
+    <tagDatabase tag="initial"/>  
+  </changeSet>
+
+  <changeSet id="BFA-100:1" author="joel">
+	<comment>BFA-100: Create department table.</comment>
+	<createTable tableName="department">
+		<column autoIncrement="true" name="ID" type="BIGINT">
+        	  <constraints nullable="false" primaryKey="true" primaryKeyName="department_pk" />
+    	</column>	
+	</createTable>
+	<rollback>
+		<dropTable tableName="department"/>
+	</rollback>
+  </changeSet>
+ 
+</databaseChangeLog>
